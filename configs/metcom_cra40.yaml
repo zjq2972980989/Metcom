@@ -1,0 +1,40 @@
+# metcom_cra40.yaml —— CRA40 反演参数配置
+# 对应原 MATLAB: 03_DataProcessing/METCOM_CRA40/CRA40.mlapp 界面参数
+# 注意: CRA40 原始数据为 GRIB2（4 变量分文件），需先转换为 NC
+
+# Data Path —— 转换后 NC 数据根目录（内含 yyyyMMdd 日文件夹）
+data_path: "E:/DATA/CRA40_nc"
+
+# Output Path —— 反演结果输出目录
+output_path: "output_CRA40"
+
+# OutPut Type —— 输出格式: txt | mat | dat
+output_format: txt
+
+# Stations List —— 站点列表文件（name lat lon h，正高）
+site_file: "bth_0125_orthometric.txt"
+
+# Start time / End time —— 时间范围（YYYYMMDD 或 YYYYMMDDHH）
+start_time: "20240101"
+end_time: "20240102"
+
+# Spatial resolution —— 空间分辨率（纬度, 经度），度
+spatial_resolution: [0.25, 0.25]
+
+# Time resolution —— 时间分辨率: 6h
+time_resolution: "6h"
+
+# Parallel pool —— 站点级并行（joblib）
+parallel: false
+
+n_jobs: null
+
+# EGM2008 高程改正文件（0.25° 版）
+egm_file: null
+
+# GRIB2 预转换选项（可选回退；默认直读 GRIB2，无需预转换。
+# 仅当需要 NC 中间产物或当前环境无法解码 GRIB2 时启用）
+grib2:
+  enabled: false
+  raw_path: "E:/DATA/CRA40_grib"
+  temp_dir: "tempTransData"

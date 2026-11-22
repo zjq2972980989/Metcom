@@ -1,0 +1,31 @@
+# Python caches and generated metadata
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Local/editor and temporary files
+.codex_tmp/
+*.log
+*.log.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local credentials
+.env
+.env.*
+.cdsapirc
+*.cdsapirc
+
+# Frontend dependencies and build output
+web/frontend/node_modules/
+web/frontend/dist/
+web/frontend/.vite/
+
+# Runtime data is governed by web/.gitignore, which keeps only distributed demo products.
+/data/
+deliverables/_runtime/

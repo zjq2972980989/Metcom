@@ -1,0 +1,9 @@
+dir_a: "regression/output_CMAMESO"
+name_a: "CMAMESO"
+dir_b: "../SOMEDATA/ERA5_GMET_BTH_Results"
+name_b: "ERA5_GMET"
+time_input: "2025060100,2025060121"
+eval_vars:
+  - "ZTD(m)"
+  - "PWV(m)"
+output_dir: "regression/eval_results"

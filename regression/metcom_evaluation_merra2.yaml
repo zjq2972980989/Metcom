@@ -1,0 +1,9 @@
+dir_a: "regression/output_Merra2"
+name_a: "MERRA2"
+dir_b: "../SOMEDATA/ERA5_GMET_BTH_Results"
+name_b: "ERA5_GMET"
+time_input: "2024010100,2024010223"
+eval_vars:
+  - "ZTD(m)"
+  - "PWV(m)"
+output_dir: "regression/eval_results"

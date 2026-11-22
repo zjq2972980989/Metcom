@@ -1,0 +1,1 @@
+"""API 路由层：只做参数校验与调用 service，不写业务逻辑、不直接 import metcom。"""

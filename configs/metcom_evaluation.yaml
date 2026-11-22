@@ -1,0 +1,31 @@
+# metcom_evaluation.yaml —— 精度评估参数配置（05_AnaEvaluationPlot）
+# 对应原 Python: 05_AnaEvaluationPlot/compareByTime_Grid.py + compareByGrid.py
+# eval_mode: timeseries = 按时间序列评估（compareByTime_Grid）
+#            bystation  = 按站点评估（compareByGrid）
+
+# DIR_A —— 数据源 A（METCOM 反演结果目录，内含 20* 年积日子文件夹）
+dir_a: "../METCOM_ver3.1/03_DataProcessing/METCOM_CRAV15/output_CRAV15"
+
+# NAME_A —— 数据源 A 名称（用于输出文件命名）
+name_a: "CRAV15"
+
+# DIR_B —— 数据源 B（参考数据目录，如武大 GMET ERA5 结果，须同样按 20* 组织）
+dir_b: "E:/SOMEDATA/ERA5_GMET_BTH_Results"
+
+# NAME_B —— 数据源 B 名称
+name_b: "ERA5_GMET"
+
+# TIME_INPUT —— 时间范围 "YYYYMMDDHH,YYYYMMDDHH"
+time_input: "2024010100,2024010123"
+
+# EVAL_VARS —— 实际参与评估的变量（原始列名；换算系数由内置 VAR_CONFIG 提供，
+# 可用 var_config 覆盖）
+eval_vars:
+  - "ZTD(m)"
+  - "PWV(m)"
+
+# OUTPUT_DIR —— 评估结果输出目录
+output_dir: "../METCOM_ver3.1/Results/output_results"
+
+# OUTPUT_TAG —— 输出文件名标签（默认自动为 NAME_A_vs_NAME_B）
+output_tag: null

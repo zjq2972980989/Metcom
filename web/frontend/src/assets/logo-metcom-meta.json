@@ -1,0 +1,22 @@
+{
+  "trim": {
+    "format": "png",
+    "mediaType": "image/png",
+    "size": 223371,
+    "width": 1355,
+    "height": 286,
+    "space": "srgb",
+    "channels": 4,
+    "depth": "uchar",
+    "density": 72,
+    "isProgressive": false,
+    "isPalette": false,
+    "bitsPerSample": 8,
+    "hasProfile": false,
+    "hasAlpha": true,
+    "autoOrient": {
+      "width": 1355,
+      "height": 286
+    }
+  }
+}

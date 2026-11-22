@@ -1,0 +1,33 @@
+# metcom_downloader.yaml —— ERA5 再分析数据下载参数配置（02_Downloader）
+# 对应原 MATLAB 版: 02_Downloader/Downloader_ERA5/Download_ERA5_IDM_multi_pureInfo.py
+# 顶部"用户配置区"全部常量
+
+# CDSAPIRC_PATH —— CDS API 密钥文件路径（url/key 两行，位于用户主目录）
+cdsapirc_path: "~/.cdsapirc"
+
+# START_TIME / END_TIME —— 下载时间范围（YYYYMMDDHH）
+start_time: "2024010300"
+end_time: "2024010312"
+
+# FORMAT —— 下载格式: nc | grib
+format: nc
+
+# OUTPUT_DIR —— 下载文件保存目录（按 yyyyMMdd 日子文件夹组织）
+output_dir: "ERA5_Download/era5_Data"
+
+# USE_IDM —— 是否使用 IDM 加速下载（仅 Windows；false 时用 requests 直连）
+use_idm: false
+
+# IDM_PATH —— IDM 可执行文件路径（use_idm: true 时必须）
+idm_path: "C:/Program Files (x86)/Internet Download Manager/IDMan.exe"
+
+# DOWNLOAD_WORKERS —— 并发下载进程数（建议 <=4）
+download_workers: 4
+
+# 完整文件判定阈值（MB）：已存在且 >= 该值的文件跳过，不完整文件删除重下
+# 原版硬编码 220MB（对应全球 0.25° 37 层 4 变量），换数据集时须调整
+min_file_size_mb: 220
+
+# 请求/下载最大重试次数
+request_retries: 3
+download_retries: 5

@@ -1,0 +1,10 @@
+data_path: "../SOMEDATA/ReanalysisData/data_CMAMESO"
+output_path: "regression/output_CMAMESO"
+output_format: txt
+site_file: "benchmarks/bth_0125_orthometric.txt"
+start_time: "20250601"
+end_time: "20250602"
+spatial_resolution: [0.03, 0.03]
+time_resolution: "3h"
+parallel: false
+egm_file: "../METCOM_ver3.1/03_DataProcessing/METCOM_CMAMESO/dependentDataFile/geoidheight_EGM2008_0030.mat"

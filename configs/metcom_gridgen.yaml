@@ -1,0 +1,69 @@
+# metcom_gridgen.yaml —— 格点文件生成参数配置（01_MakeGrdText）
+# 对应原 MATLAB: 01_MakeGrdText/ShpDemToRegion_Masked_region.m + OrthHeight2EllHeight.m
+# 原版两脚本的硬编码路径/参数全部集中于此。
+# 相对路径均相对于运行命令时的工作目录（默认即 METCOM_ver3.1_python 根目录）。
+
+# ---------------- 步骤 1A: DEM 区域裁剪（ShpDemToRegion_Masked_region.m） ----------------
+dem:
+  # DEM_PATH —— 全球地形数据（GMT netCDF, 0.05°；随原软件包 lib/ 提供）
+  dem_path: "../METCOM_ver3.1/01_MakeGrdText/lib/earth_relief_03m.nc"
+
+  # CITY_SHP —— 中国行政区划 shapefile（district 层含 ct_adcode 字段）
+  city_shp: "../METCOM_ver3.1/01_MakeGrdText/lib/ChinaAdminDivisonSHP/District/district.shp"
+
+  # OUTPUT_DIR —— DEM NetCDF 输出目录
+  output_dir: "DEM_Output"
+
+  # RESOLUTION —— 目标格点分辨率（度），支持 0.125 与 0.25 及其整数倍
+  resolution: 0.125
+
+  # regions —— 区域配置表（与原 MATLAB regions{} cell 一一对应）
+  #   extent: [最小经度, 最大经度, 最小纬度, 最大纬度]
+  #   prefixes: 行政区划编码前缀列表（矩形模式留空 []）
+  #   is_province_level: true=按前2位匹配省级编码
+  #   apply_mask: true=行政边界掩膜, false=经纬度矩形裁剪
+  #   file_name: 输出 NC 文件名
+  regions:
+    - name: "BJ"
+      extent: [115.5, 117.5, 39.0, 42.0]
+      prefixes: ["11"]
+      is_province_level: true
+      apply_mask: true
+      file_name: "bj_dem_0125deg_admin.nc"
+    - name: "BTH"
+      extent: [113.0, 120.0, 36.0, 43.0]
+      prefixes: ["11", "12", "13"]
+      is_province_level: true
+      apply_mask: true
+      file_name: "bth_dem_0125deg_admin.nc"
+    - name: "BTH_rect"
+      extent: [113.0, 120.0, 36.0, 43.0]
+      prefixes: []
+      is_province_level: false
+      apply_mask: false
+      file_name: "bth_dem_0125deg_rect.nc"
+
+# ---------------- 步骤 1B: 格点文本生成（OrthHeight2EllHeight.m） ----------------
+stations:
+  # DEM_FILE —— 上一步输出的 DEM 文件
+  dem_file: "DEM_Output/bth_dem_0125deg_admin.nc"
+
+  # OUTPUT_PREFIX —— 输出文件名前缀
+  output_prefix: "bth"
+
+  # BASE_RESOLUTION —— 输入 DEM 基础分辨率（度）
+  base_resolution: 0.125
+
+  # OUTPUT_RESOLUTION —— 输出分辨率（须为基础分辨率整数倍）
+  output_resolution: 0.125
+
+  # OUTPUT_DIR —— 格点 txt 输出目录
+  output_dir: "staList_Output"
+
+  # MAX_STATIONS —— 最大站点数限制
+  max_stations: 25000
+
+  # EGM2008 大地水准面格网文本（lat lon N 三列；随原软件包 lib/ 提供）
+  #   >=0.25 分辨率用 coarse，<0.25 用 fine（与原版逻辑一致）
+  egm_coarse: "../METCOM_ver3.1/01_MakeGrdText/lib/025.txt"
+  egm_fine: "../METCOM_ver3.1/01_MakeGrdText/lib/0125.txt"

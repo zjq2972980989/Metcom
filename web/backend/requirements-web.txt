@@ -1,0 +1,6 @@
+# MetCom Web 后端依赖（阶段 1）
+# 计算引擎自身依赖见仓库根 requirements.txt（numpy/xarray/netCDF4/... 已在当前 Python 环境装好）
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.9
+pydantic-settings>=2.4

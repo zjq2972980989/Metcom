@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# 运行期数据：原始资料 / 任务结果 / 缓存 / 正式产品（默认全部不入库）
+data/*
+# 例外：标准产品目录需可遍历，其中"演示数据"随项目分发（见 data/products/.gitignore）
+!data/products/
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# 本地配置
+backend/.env

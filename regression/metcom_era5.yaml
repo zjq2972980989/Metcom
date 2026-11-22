@@ -1,0 +1,11 @@
+# ERA5 端到端回归配置（SOMEDATA 真实数据 → 对比 benchmarks/output_ERA5）
+data_path: "../SOMEDATA/ReanalysisData/data_ERA5"
+output_path: "regression/output_ERA5"
+output_format: txt
+site_file: "benchmarks/bth_0125_orthometric.txt"
+start_time: "20240101"
+end_time: "20240102"
+spatial_resolution: [0.25, 0.25]
+time_resolution: "1h"
+parallel: false
+egm_file: "../METCOM_ver3.1/03_DataProcessing/METCOM_ERA5/dependentDataFile/geoidheight_EGM2008_0250.mat"

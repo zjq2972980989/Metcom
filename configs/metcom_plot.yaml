@@ -1,0 +1,39 @@
+# metcom_plot.yaml —— 可视化绘图参数配置（05_AnaEvaluationPlot）
+# 对应原 Python: plot_ZTD_PWV_Sequence_rmse.py / plot_ZTD_PWV_HeatMap_rmse.py
+#                / plot_ZTD_PWV_HeatMap_value.py
+# plot_type: sequence   = RMSE 时间序列图（需 Timeseries 评估 txt）
+#            heatmap_rmse = 站点 RMSE 空间热力图（需 ByStation 评估 txt）
+#            heatmap_value = 单时刻数值热力图（需 03 反演结果 txt）
+
+plot_type: sequence
+
+# TXT_FILE —— 输入数据文件（按 plot_type 指向对应评估/反演结果）
+txt_file: "../METCOM_ver3.1/Results/output_results/MERRA2_vs_ERA5_GMET_Timeseries_2024010100_2024010223.txt"
+
+# OUTPUT_DIR —— 图片输出目录
+output_dir: "../METCOM_ver3.1/Results/plotResults"
+
+# NAME_A / NAME_B —— 数据源名称（图例与文件命名）
+name_a: "MERRA2"
+name_b: "ERA5_GMET"
+
+# REGION_NAME / REGION —— 区域: BTH（京津冀）或 CHN（全国）
+region: "BTH"
+
+# PLOT_VARS / TARGET_VARS —— 绘图变量（与输入文件列名一致）
+plot_vars:
+  - "ZTD_RMSE(mm)"
+  - "PWV_RMSE(mm)"
+
+# 单时刻数值热力图的单位转换（m -> mm）
+var_convert:
+  "ZTD(m)": 1000.0
+  "PWV(m)": 1000.0
+  "Ps(hpa)": 1.0
+  "Tm(K)": 1.0
+
+# 中国行政区划 shapefile（掩膜轮廓）
+china_shp: "../METCOM_ver3.1/05_AnaEvaluationPlot/ChinaAdminDivisonSHP/District/district.shp"
+
+# 热力图插值分辨率（度，需按站点密度调整）
+grid_resolution: 0.05

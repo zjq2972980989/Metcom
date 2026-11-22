@@ -1,0 +1,26 @@
+# metcom_timeinterp.yaml —— 时间维度插值参数配置（04_TimeInter）
+# 对应原 MATLAB: 04_TimeInter/main.m + interpolate_gnss_data.m
+
+# input_dir —— 需要插值的反演结果目录（如 METCOM_MERRA2/output_Merra2）
+input_dir: "output_Merra2"
+
+# output_dir —— 插值结果输出目录
+output_dir: "TimeInter_MERRA2"
+
+# original_interval —— 原始时间分辨率（小时）。
+# 注意: 原 MATLAB 代码中该参数仅作文档作用，实际插值时刻由 target_interval 决定
+original_interval: 6
+
+# target_interval —— 目标时间分辨率（小时），如 1 表示逐小时
+target_interval: 1
+
+# 插值变量列表（与原 MATLAB 默认一致）
+variables:
+  - "ZTD(m)"
+  - "ZHD(m)"
+  - "ZWD(m)"
+  - "PWV(m)"
+  - "Ps(hpa)"
+  - "Tm(K)"
+  - "vapor_pressure(hpa)"
+  - "WVD"

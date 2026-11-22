@@ -1,0 +1,10 @@
+data_path: "../SOMEDATA/ReanalysisData/data_Merra2"
+output_path: "regression/output_Merra2"
+output_format: txt
+site_file: "benchmarks/bth_0125_orthometric.txt"
+start_time: "20240101"
+end_time: "20240102"
+spatial_resolution: [0.5, 0.625]
+time_resolution: "6h"
+parallel: false
+egm_file: "../METCOM_ver3.1/03_DataProcessing/METCOM_MERRA2/dependentDataFile/geoidheight_EGM2008_0500_0625.mat"

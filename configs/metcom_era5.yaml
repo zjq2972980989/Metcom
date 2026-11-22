@@ -1,0 +1,35 @@
+# metcom_era5.yaml —— ERA5 反演参数配置
+# 对应原 MATLAB: 03_DataProcessing/METCOM_ERA5/ERA5.mlapp 界面参数（自上而下）
+# 优先级: 命令行参数 > 本文件 > 代码内置默认值
+
+# Data Path —— ERA5 NC 数据根目录（内含 yyyyMMdd 日文件夹）
+data_path: "E:/ERA5_Download/era5_Data"
+
+# Output Path —— 反演结果输出目录
+output_path: "output_ERA5"
+
+# OutPut Type —— 输出格式: txt | mat | dat
+output_format: txt
+
+# Stations List —— 站点列表文件（name lat lon h，正高）
+site_file: "bth_0125_orthometric.txt"
+
+# Start time / End time —— 时间范围（YYYYMMDD 或 YYYYMMDDHH，按日期筛选数据文件夹）
+start_time: "20240101"
+end_time: "20240101"
+
+# Spatial resolution —— 空间分辨率（纬度, 经度），度；当前仅支持 0.25
+spatial_resolution: [0.25, 0.25]
+
+# Time resolution —— 时间分辨率；当前仅支持 1h
+time_resolution: "1h"
+
+# Parallel pool —— 站点级并行（joblib）
+parallel: false
+
+# 并行进程数（parallel: true 时生效；默认为 CPU 核数）
+n_jobs: null
+
+# EGM2008 高程改正文件（默认使用 METCOM_ver3.1 包内 dependentDataFile，
+# 也可指定自定义绝对路径）
+egm_file: null
