@@ -1,15 +1,25 @@
 # Python caches and generated metadata
 __pycache__/
 *.py[cod]
+*.pyo
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 *.egg-info/
 .venv/
 venv/
+.coverage
+htmlcov/
+build/
+.ipynb_checkpoints/
 
 # Local/editor and temporary files
 .codex_tmp/
 *.log
 *.log.*
+*.tmp
+*.temp
+*.bak
 .vscode/
 .idea/
 .DS_Store
@@ -18,13 +28,26 @@ Thumbs.db
 # Local credentials
 .env
 .env.*
+!.env.example
+!**/.env.example
 .cdsapirc
 *.cdsapirc
+*.netrc
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Frontend dependencies and build output
 web/frontend/node_modules/
 web/frontend/dist/
 web/frontend/.vite/
+
+# MATLAB temporary files
+*.asv
+*.m~
+*.autosave
+slprj/
 
 # Runtime data is governed by web/.gitignore, which keeps only distributed demo products.
 /data/

@@ -31,11 +31,15 @@ web/
 ├── frontend/             Vue 3 + Vite
 │   └── src/{router,layouts,components,views,api,composables,assets,stores}
 ├── data/                 运行期数据（自动创建，已被 .gitignore 忽略）
-│   ├── tasks/            任务记录与结果：tasks.json + results/
-│   └── products/         标准产品仓库：standard/（正式，空）+ demo/（演示数据）
+│   ├── dependent/        计算必需的 EGM2008 与默认站点样例（随项目入库）
+│   ├── raw/ tasks/ cache/ 原始资料、任务结果和中间缓存（不入库）
+│   └── products/         standard/（仅说明）+ demo/（演示数据）
 ├── start.bat             一键启动前后端（实际调用下面两个脚本）
 └── README.md
 ```
+
+后端配置模板位于 `backend/.env.example`；复制为 `backend/.env` 后按本机路径修改。
+不要在仓库中提交真实 `.env`、CDS 密钥或 Earthdata 账号。
 
 启动脚本说明：`start.bat` 只负责检查环境并用 `start /D` 打开两个窗口，
 真正的启动命令在 `backend/start-backend.bat`（uvicorn + UTF-8 控制台）与
@@ -53,8 +57,14 @@ web/
 ## 启动
 
 ```bat
+cd web\frontend
+npm ci
+cd ..\..
 web\start.bat
 ```
+
+要求 Node.js `^20.19.0 || >=22.12.0`，对应 Vite 8 的运行要求。
+如果 `npm` 不在 PATH，可先设置 `METCOM_NODE_DIR` 指向 Node.js 安装目录。
 
 - 后端：http://127.0.0.1:8000/api/docs （Swagger 文档）
 - 前端：http://127.0.0.1:5173

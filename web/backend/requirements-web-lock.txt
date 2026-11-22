@@ -1,0 +1,8 @@
+# Verified direct Python dependencies for the MetCom Web backend.
+# Install: python -m pip install -r web/backend/requirements-web.txt \
+#          -c web/backend/requirements-web-lock.txt
+
+fastapi==0.141.1
+uvicorn==0.53.0
+pydantic==2.12.4
+pydantic-settings==2.12.0

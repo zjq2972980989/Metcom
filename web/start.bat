@@ -6,8 +6,8 @@ rem  Keep this file ASCII-only. cmd.exe parses .bat files with
 rem  the OEM code page, so non-ASCII text breaks the parsing.
 rem ===========================================================
 
-set "NODE_DIR=C:\Users\29729\nodejs"
-if exist "%NODE_DIR%\npm.cmd" set "PATH=%NODE_DIR%;%PATH%"
+rem Optional override when npm is not already available in PATH.
+if defined METCOM_NODE_DIR if exist "%METCOM_NODE_DIR%\npm.cmd" set "PATH=%METCOM_NODE_DIR%;%PATH%"
 
 set "WEB_DIR=%~dp0"
 
@@ -20,7 +20,7 @@ if errorlevel 1 (
 
 where npm >nul 2>nul
 if errorlevel 1 (
-    echo [ERROR] npm not found. Expected at "%NODE_DIR%".
+    echo [ERROR] npm not found. Add Node.js to PATH or set METCOM_NODE_DIR.
     pause
     exit /b 1
 )

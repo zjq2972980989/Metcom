@@ -4,5 +4,7 @@
 # 默认不入库 —— 版本库里只保留可复现的演示样例，正式产品由数据盘/构建流程提供。
 *
 !.gitignore
+!standard/
+!standard/README.md
 !demo/
 !demo/**

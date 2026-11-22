@@ -16,9 +16,11 @@ import pytest
 BACKEND_DIR = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = BACKEND_DIR.parent.parent
 
-for _path in (BACKEND_DIR, PROJECT_ROOT):
-    if str(_path) not in sys.path:
-        sys.path.insert(0, str(_path))
+for _path in (PROJECT_ROOT, BACKEND_DIR):
+    path_text = str(_path)
+    while path_text in sys.path:
+        sys.path.remove(path_text)
+    sys.path.insert(0, path_text)
 
 
 @pytest.fixture(autouse=True)

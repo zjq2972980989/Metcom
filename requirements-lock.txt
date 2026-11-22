@@ -1,0 +1,28 @@
+# Verified direct Python dependencies for MetCom core.
+# Tested with Python 3.13.9 on Windows 2026-11-22.
+# Install: python -m pip install -e ".[dev]" -c requirements-lock.txt
+
+numpy==2.3.5
+pandas==2.3.3
+scipy==1.16.3
+xarray==2026.1.0
+netCDF4==1.7.4
+h5py==3.15.1
+PyYAML==6.0.3
+click==8.2.1
+joblib==1.5.2
+tqdm==4.67.1
+requests==2.32.5
+cdsapi==0.7.7
+cfgrib==0.9.15.1
+pytest==8.4.2
+
+# Optional plotting extra.
+matplotlib==3.10.6
+cartopy==0.25.0
+geopandas==1.1.4
+shapely==2.1.2
+
+# Optional desktop GUI extra.
+PySide6==6.9.2
+pyqtgraph==0.14.0
